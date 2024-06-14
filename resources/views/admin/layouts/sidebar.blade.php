@@ -66,6 +66,16 @@
                         <span class="pc-mtext">Messages archivés</span>
                     </a>
                 </li>
+                <li class="pc-item @if(\Illuminate\Support\Facades\Request::segment(2) === 'articles') active @endif ">
+                    <a href="{{route('admin.articles.index')}}" class="pc-link">
+                        <span class="pc-micon">
+                            <svg class="pc-icon">
+                                <use xlink:href="#custom-direct-inbox"></use>
+                            </svg>
+                        </span>
+                        <span class="pc-mtext">Articles</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

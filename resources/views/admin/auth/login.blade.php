@@ -4,7 +4,7 @@
     <div class="card my-5">
         <div class="card-body">
             <div class="text-center">
-                <img src="{{asset('img/logo2.png')}}" class="img-fluid w-75" alt="img">
+                <img src="{{asset('img/logo-dark.png')}}" class="img-fluid w-75" alt="img">
             </div>
             <hr class="border my3" >
             <h4 class="text-center f-w-500 mb-3">Connectez-vous avec votre email</h4>

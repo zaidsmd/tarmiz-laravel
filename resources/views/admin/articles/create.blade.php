@@ -1,23 +1,24 @@
 @extends('admin.layouts.main')
 @section('page-title','')
-@section('document-title','Projets et réalisations')
+@section('document-title','Articles')
 @push('styles')
     <link rel="stylesheet" href="{{asset('libs/dropify/css/dropify.min.css')}}">
+    <link rel="stylesheet" href="{{asset('plugins/datepicker-bs5.min.css')}}">
 @endpush
 @section('breadcrumb')
     <ul class="breadcrumb">
-        <li class="breadcrumb-item" aria-current="page">Projets et réalisations</li>
+        <li class="breadcrumb-item" aria-current="page">Articles</li>
     </ul>
 @endsection
 @section('main-content')
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <form action="{{route('admin.projects.store')}}" method="post" enctype="multipart/form-data">
+                <form action="{{route('admin.articles.store')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                         <div class="d-flex align-items-center justify-content-between ">
-                            <h5 class="m-0" >Ajouter un projet ou réalisation</h5>
+                            <h5 class="m-0" >Ajouter une Article</h5>
                             <button class="btn-light-info btn" >Sauvegarder</button>
                         </div>
                         <hr class="border" >
@@ -32,12 +33,9 @@
                                 @enderror
                             </div>
                             <div class="col-md-4 col-sm-6 mt-3">
-                                <label for="type" class="form-label" >Type</label>
-                                <select name="type" class="form-select" id="type">
-                                    <option value="project">Projet</option>
-                                    <option value="realisation">Réalisation</option>
-                                </select>
-                                @error('type')
+                                <label for="date" class="form-label" >Date</label>
+                                <input id="date" type="text" autocomplete="off" class="form-control @error('date') is-invalid @enderror" name="date">
+                                @error('date')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
@@ -86,6 +84,7 @@
     <script src="{{asset('js/plugins/tinymce/tinymce.js')}}"></script>
     <script src="{{asset('js/plugins/tinymce/langs/fr_FR.js')}}"></script>
     <script src="{{asset('libs/dropify/js/dropify.min.js')}}"></script>
+    <script src="{{asset('js/plugins/datepicker-full.min.js')}}" ></script>
     <script>
         $('#thumbnail').dropify({
             height:'109px',
@@ -109,5 +108,8 @@
             ],
             plugins: 'advlist autolink link image lists charmap  preview code'
         });
+        const datepicker = new Datepicker(document.querySelector('#date'),{
+            buttonClass: 'btn'
+        })
     </script>
 @endpush

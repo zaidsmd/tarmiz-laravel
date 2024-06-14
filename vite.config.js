@@ -24,7 +24,7 @@ const JS =[
     'resources/admin/js/pcoded.js',
     'resources/admin/js/tech-stack.js',
     'resources/admin/js/dataTable_init.js',
-    'resources/admin/js/projects/index.js',
+    'resources/admin/js/articles/index.js',
     'resources/admin/js/messages/index.js',
     'resources/admin/js/messages/archived.js',
     'resources/admin/js/app.js'
